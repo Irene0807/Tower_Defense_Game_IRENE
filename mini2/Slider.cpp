@@ -25,14 +25,25 @@ void Slider::SetOnValueChangedCallback(std::function<void(float value)> onValueC
 void Slider::SetValue(float value) {
 	// TODO 1 (4/7): Call 'OnValueChangedCallback' when value changed. Can imitate ImageButton's 'OnClickCallback'.
 	// Also, move the slider along the bar, to the corresponding position.
+	this->value = value;
+	Position.x = End1.Position.x + this->value * (End2.Position.x - End1.Position.x);
+	if (OnValueChangedCallback) OnValueChangedCallback(this->value);
 
 }
 void Slider::OnMouseDown(int button, int mx, int my) {
 	// TODO 1 (5/7): Set 'Down' to true if mouse is in the slider.
+	if (mouseIn & Enabled && button == 1) Down = true;
 }
 void Slider::OnMouseUp(int button, int mx, int my) {
 	// TODO 1 (6/7): Set 'Down' to false.
+	Down = false;
 }
 void Slider::OnMouseMove(int mx, int my) {
 	// TODO 1 (7/7): Clamp the coordinates and calculate the value. Call 'SetValue' when you're done.
+	ImageButton::OnMouseMove(mx, my);
+	if (Down) {
+		if (mx >= End1.Position.x && mx <= End2.Position.x) {
+			SetValue((mx - End1.Position.x) / (End2.Position.x - End1.Position.x));
+		}
+	}
 }
