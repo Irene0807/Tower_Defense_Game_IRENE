@@ -1,17 +1,17 @@
-#ifndef STAGESELECTSCENE_HPP
-#define STAGESELECTSCENE_HPP
+#ifndef SETTINGSCENE_HPP
+#define SETTINGSCENE_HPP
 #include <allegro5/allegro_audio.h>
 #include <memory>
 #include "IScene.hpp"
 
-class StageSelectScene final : public Engine::IScene {
+class SettingScene final : public Engine::IScene {
 private:
 	std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> bgmInstance;
 public:
-	explicit StageSelectScene() = default;
+	explicit SettingScene() = default;
 	void Initialize() override;
 	void Terminate() override;
-	void PlayOnClick(int stage);
+	void PlayOnClick();
 	void BGMSlideOnValueChanged(float value);
 	void SFXSlideOnValueChanged(float value);
 };

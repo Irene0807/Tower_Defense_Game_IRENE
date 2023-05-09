@@ -12,6 +12,7 @@ public:
 	void Initialize() override;
 	void Terminate() override;
 	void PlayOnClick(int stage);
+	void SettingOnClick();
 	void BGMSlideOnValueChanged(float value);
 	void SFXSlideOnValueChanged(float value);
 };
