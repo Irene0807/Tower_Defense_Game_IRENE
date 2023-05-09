@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mini2", "mini2\mini2.vcxproj", "{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D5C4B5A7-1514-4437-ADC6-81BDC362BE42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Debug|x64.ActiveCfg = Debug|x64
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Debug|x64.Build.0 = Debug|x64
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Debug|x86.ActiveCfg = Debug|Win32
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Debug|x86.Build.0 = Debug|Win32
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Release|x64.ActiveCfg = Release|x64
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Release|x64.Build.0 = Release|x64
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Release|x86.ActiveCfg = Release|Win32
+		{EC5F8998-B8AF-4762-B755-ED0CBFDD367D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFAA2C0B-9B5E-4274-AABB-679B14D8BCB6}
+	EndGlobalSection
+EndGlobal
