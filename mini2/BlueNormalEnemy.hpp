@@ -1,9 +1,9 @@
-#ifndef REDNORMALENEMY_HPP
-#define REDNORMALENEMY_HPP
+#ifndef BLUENORMALENEMY_HPP
+#define BLUENORMALENEMY_HPP
 #include "Enemy.hpp"
 
-class RedNormalEnemy : public Enemy {
+class BlueNormalEnemy : public Enemy {
 public:
-    RedNormalEnemy(int x, int y);
+    BlueNormalEnemy(int x, int y);
 };
-#endif // REDNORMALENEMY_HPP
+#endif // BLUENORMALENEMY_HPP

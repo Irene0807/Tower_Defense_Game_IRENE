@@ -21,6 +21,7 @@
 #include "Plane.hpp"
 // Enemy
 #include "RedNormalEnemy.hpp"
+#include "BlueNormalEnemy.hpp"
 #include "PlayScene.hpp"
 #include "Resources.hpp"
 #include "Sprite.hpp"
@@ -159,6 +160,9 @@ void PlayScene::Update(float deltaTime) {
 		switch (current.first) {
 		case 1:
 			EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
+			break;
+		case 2:
+			EnemyGroup->AddNewObject(enemy = new BlueNormalEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
 		// TODO 2 (2/3): You need to modify 'resources/enemy1.txt', or 'resources/enemy2.txt' to spawn the new enemy.
 		// The format is "[EnemyId] [TimeDelay] [Repeat]".
