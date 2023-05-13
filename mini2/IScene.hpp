@@ -17,7 +17,8 @@ namespace Engine {
 		explicit IScene() = default;
 	public:
 		/// <summary>
-		/// Copy constructor is deleted, no copying allowed.
+		/// Copy constructor is 
+		/// d, no copying allowed.
 		/// </summary>
 		IScene(IScene const&) = delete;
 		/// <summary>

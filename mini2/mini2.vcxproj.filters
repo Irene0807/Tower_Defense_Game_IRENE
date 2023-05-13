@@ -114,9 +114,6 @@
     <ClCompile Include="SettingScene.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="BlueNormalEnemy.cpp">
-      <Filter>來源檔案</Filter>
-    </ClCompile>
     <ClCompile Include="MachineGunTurret.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
@@ -124,6 +121,9 @@
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="ShootingEffect.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="DiceEnemy.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
@@ -227,9 +227,6 @@
     <ClInclude Include="SettingScene.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="BlueNormalEnemy.hpp">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="MachineGunTurret.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -237,6 +234,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="ShootingEffect.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="DiceEnemy.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

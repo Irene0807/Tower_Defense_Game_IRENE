@@ -1,7 +1,7 @@
 #include <string>
 
-#include "BlueNormalEnemy.hpp"
+#include "DiceEnemy.hpp"
 
-BlueNormalEnemy::BlueNormalEnemy(int x, int y) : Enemy("play/enemy-9.png", x, y, 25, 45, 7, 5) {
+DiceEnemy::DiceEnemy(int x, int y) : Enemy("play/dice-1.png", x, y, 25, 60, 7, 5) {
     // TODO 2 (1/3): You can imitate the 2 files: 'RedNormalEnemy.hpp', 'RedNormalEnemy.cpp' to create a new enemy.
 }

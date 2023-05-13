@@ -78,7 +78,9 @@ namespace Engine {
 	public:
 		// Note: We'll ignore C++11's move constructor, move assignment operator in this project for simplicity.
 		/// <summary>
-		/// Copy constructor is deleted, no copying allowed.
+		/// Copy constructor is 
+		/// 
+		/// d, no copying allowed.
 		/// </summary>
 		GameEngine(GameEngine const&) = delete;
 		/// <summary>

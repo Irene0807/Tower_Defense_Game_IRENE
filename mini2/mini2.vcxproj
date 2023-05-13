@@ -152,9 +152,9 @@
   <ItemGroup>
     <ClCompile Include="Allegro5Exception.cpp" />
     <ClCompile Include="AudioHelper.cpp" />
-    <ClCompile Include="BlueNormalEnemy.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="DiceEnemy.cpp" />
     <ClCompile Include="DirtyEffect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExplosionEffect.cpp" />
@@ -191,9 +191,9 @@
   <ItemGroup>
     <ClInclude Include="Allegro5Exception.hpp" />
     <ClInclude Include="AudioHelper.hpp" />
-    <ClInclude Include="BlueNormalEnemy.hpp" />
     <ClInclude Include="Bullet.hpp" />
     <ClInclude Include="Collider.hpp" />
+    <ClInclude Include="DiceEnemy.hpp" />
     <ClInclude Include="DirtyEffect.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="ExplosionEffect.hpp" />

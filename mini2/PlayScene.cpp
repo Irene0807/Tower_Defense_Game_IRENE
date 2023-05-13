@@ -22,7 +22,7 @@
 #include "Plane.hpp"
 // Enemy
 #include "RedNormalEnemy.hpp"
-#include "BlueNormalEnemy.hpp"
+#include "DiceEnemy.hpp"
 #include "PlayScene.hpp"
 #include "Resources.hpp"
 #include "Sprite.hpp"
@@ -163,7 +163,7 @@ void PlayScene::Update(float deltaTime) {
 			EnemyGroup->AddNewObject(enemy = new RedNormalEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
 		case 2:
-			EnemyGroup->AddNewObject(enemy = new BlueNormalEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
+			EnemyGroup->AddNewObject(enemy = new DiceEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
 		// TODO 2 (2/3): You need to modify 'resources/enemy1.txt', or 'resources/enemy2.txt' to spawn the new enemy.
 		// The format is "[EnemyId] [TimeDelay] [Repeat]".
@@ -273,7 +273,7 @@ void PlayScene::OnKeyDown(int keyCode) {
 		// Earn money : money += 10000;
 		std::list<int>::iterator it;
 		int i = 0;
-		for (it = keyStrokes.begin(); it != keyStrokes.end(); it++, i++) {
+		for (it = keyStrokes.begin(); it != keyStrokes.end(); it++, i++) { 
 			if (*it != code[i])  break;
 			if (i == 6) {
 				EffectGroup->AddNewObject(new Plane());

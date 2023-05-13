@@ -16,7 +16,7 @@ FireBullet::FireBullet(Engine::Point position, Engine::Point forwardDirection, f
     // TODO 3 (2/5): You can imitate the 2 files: 'WoodBullet.hpp', 'WoodBullet.cpp' to create a new bullet.
 }
 void FireBullet::OnExplode(Enemy* enemy) {
-    enemy->Slow(0.5, 10);
+    enemy->Slow(0.5, 3);
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(2, 5);
