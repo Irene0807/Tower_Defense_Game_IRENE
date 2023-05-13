@@ -158,6 +158,7 @@
     <ClCompile Include="DirtyEffect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExplosionEffect.cpp" />
+    <ClCompile Include="FireBullet.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="IControl.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="LOG.cpp" />
     <ClCompile Include="LoseScene.cpp" />
+    <ClCompile Include="MachineGunTurret.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PlayScene.cpp" />
@@ -194,6 +196,7 @@
     <ClInclude Include="DirtyEffect.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="ExplosionEffect.hpp" />
+    <ClInclude Include="FireBullet.hpp" />
     <ClInclude Include="GameEngine.hpp" />
     <ClInclude Include="Group.hpp" />
     <ClInclude Include="IControl.hpp" />
@@ -204,6 +207,7 @@
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="LOG.hpp" />
     <ClInclude Include="LoseScene.hpp" />
+    <ClInclude Include="MachineGunTurret.hpp" />
     <ClInclude Include="Plane.hpp" />
     <ClInclude Include="PlayScene.hpp" />
     <ClInclude Include="PlugGunTurret.hpp" />

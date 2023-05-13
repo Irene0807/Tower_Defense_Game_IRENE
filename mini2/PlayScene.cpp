@@ -18,6 +18,7 @@
 #include "Label.hpp"
 // Turret
 #include "PlugGunTurret.hpp"
+#include "MachineGunTurret.hpp"
 #include "Plane.hpp"
 // Enemy
 #include "RedNormalEnemy.hpp"
@@ -275,6 +276,7 @@ void PlayScene::OnKeyDown(int keyCode) {
 	// TODO 3 (5/5): Make the W key to create the new turret.
 	else if (keyCode == ALLEGRO_KEY_W) {
 		// Hotkey for new turret.
+		UIBtnClicked(1);
 	}
 	else if (keyCode >= ALLEGRO_KEY_0 && keyCode <= ALLEGRO_KEY_9) {
 		// Hotkey for Speed up.
@@ -358,6 +360,7 @@ void PlayScene::ConstructUI() {
 	UIGroup->AddNewObject(UILives = new Engine::Label(std::string("Life ") + std::to_string(lives), "pirulen.ttf", 24, 1294, 88));
 	// Buttons
 	ConstructButton(0, "play/turret-6.png", PlugGunTurret::Price);
+	ConstructButton(1, "play/turret-1.png", MachineGunTurret::Price);
 	// TODO 3 (3/5): Create a button to support constructing the new turret.
     
 	int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -386,6 +389,8 @@ void PlayScene::UIBtnClicked(int id) {
     }
 	if (id == 0 && money >= PlugGunTurret::Price) 
 		preview = new PlugGunTurret(0, 0);
+	if (id == 1 && money >= MachineGunTurret::Price)
+		preview = new MachineGunTurret(0, 0);
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)
 		return;
