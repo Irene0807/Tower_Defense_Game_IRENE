@@ -38,7 +38,7 @@ const float PlayScene::DangerTime = 7.61;
 const Engine::Point PlayScene::SpawnGridPoint = Engine::Point(-1, 0);
 const Engine::Point PlayScene::EndGridPoint = Engine::Point(MapWidth, MapHeight - 1);
 // TODO 5 (2/3): Set the cheat code correctly.
-const std::vector<int> PlayScene::code = { ALLEGRO_KEY_UP };
+const std::vector<int> PlayScene::code = { ALLEGRO_KEY_UP,ALLEGRO_KEY_DOWN,ALLEGRO_KEY_LEFT,ALLEGRO_KEY_RIGHT,ALLEGRO_KEY_LEFT,ALLEGRO_KEY_RIGHT,ALLEGRO_KEY_ENTER };
 Engine::Point PlayScene::GetClientSize() {
 	return Engine::Point(MapWidth * BlockSize, MapHeight * BlockSize);
 }
@@ -260,6 +260,9 @@ void PlayScene::OnKeyDown(int keyCode) {
 	IScene::OnKeyDown(keyCode);
 	if (keyCode == ALLEGRO_KEY_TAB) {
 		// TODO 5 (1/3): Set Tab as a code to active / de-active the debug mode.
+		if (DebugMode == true) DebugMode = false;
+		else DebugMode = true;
+
 	}
 	else {
 		keyStrokes.push_back(keyCode);
@@ -268,6 +271,16 @@ void PlayScene::OnKeyDown(int keyCode) {
 		// TODO 5 (3/3): Check whether the input sequence corresponds to the code. If so, active a plane and earn 10000 money.
         // Active a plane : EffectGroup->AddNewObject(new Plane());
 		// Earn money : money += 10000;
+		std::list<int>::iterator it;
+		int i = 0;
+		for (it = keyStrokes.begin(); it != keyStrokes.end(); it++, i++) {
+			if (*it != code[i])  break;
+			if (i == 6) {
+				EffectGroup->AddNewObject(new Plane());
+				money += 10000;
+			}
+		}
+		
 	}
 	if (keyCode == ALLEGRO_KEY_Q) {
 		// Hotkey for PlugGunTurret.

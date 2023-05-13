@@ -10,6 +10,7 @@
 #include "DirtyEffect.hpp"
 #include "Enemy.hpp"
 #include "ExplosionEffect.hpp"
+#include "ShootingEffect.hpp"
 #include "GameEngine.hpp"
 #include "Group.hpp"
 #include "IScene.hpp"

@@ -178,6 +178,7 @@
     <ClCompile Include="RedNormalEnemy.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="SettingScene.cpp" />
+    <ClCompile Include="ShootingEffect.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StageSelectScene.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="RedNormalEnemy.hpp" />
     <ClInclude Include="Resources.hpp" />
     <ClInclude Include="SettingScene.hpp" />
+    <ClInclude Include="ShootingEffect.hpp" />
     <ClInclude Include="Slider.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="StageSelectScene.hpp" />
