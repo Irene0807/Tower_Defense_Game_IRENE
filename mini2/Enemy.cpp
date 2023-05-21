@@ -37,6 +37,7 @@ Enemy::Enemy(std::string img, float x, float y, float radius, float speed, float
 	CollisionRadius = radius;
 	reachEndTime = 0;
 }
+
 void Enemy::Hit(float damage) {
 	hp -= damage;
 	if (hp <= 0) {

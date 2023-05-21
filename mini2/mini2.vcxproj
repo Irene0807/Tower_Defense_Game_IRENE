@@ -154,7 +154,7 @@
     <ClCompile Include="AudioHelper.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="DiceEnemy.cpp" />
+    <ClCompile Include="Dice2Enemy.cpp" />
     <ClCompile Include="DirtyEffect.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExplosionEffect.cpp" />
@@ -175,7 +175,7 @@
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="PlugGunTurret.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="RedNormalEnemy.cpp" />
+    <ClCompile Include="AllEnemy.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="SettingScene.cpp" />
     <ClCompile Include="ShootingEffect.cpp" />
@@ -193,7 +193,7 @@
     <ClInclude Include="AudioHelper.hpp" />
     <ClInclude Include="Bullet.hpp" />
     <ClInclude Include="Collider.hpp" />
-    <ClInclude Include="DiceEnemy.hpp" />
+    <ClInclude Include="Dice2Enemy.hpp" />
     <ClInclude Include="DirtyEffect.hpp" />
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="ExplosionEffect.hpp" />
@@ -213,7 +213,7 @@
     <ClInclude Include="PlayScene.hpp" />
     <ClInclude Include="PlugGunTurret.hpp" />
     <ClInclude Include="Point.hpp" />
-    <ClInclude Include="RedNormalEnemy.hpp" />
+    <ClInclude Include="AllEnemy.hpp" />
     <ClInclude Include="Resources.hpp" />
     <ClInclude Include="SettingScene.hpp" />
     <ClInclude Include="ShootingEffect.hpp" />

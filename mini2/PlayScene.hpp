@@ -9,6 +9,7 @@
 #include "IScene.hpp"
 #include "Point.hpp"
 
+
 class Turret;
 namespace Engine {
 	class Group;
@@ -31,6 +32,7 @@ protected:
 	int lives;
 	int money;
 	int SpeedMult;
+
 public:
 	static bool DebugMode;
 	static const std::vector<Engine::Point> directions;

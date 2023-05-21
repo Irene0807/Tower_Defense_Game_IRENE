@@ -11,6 +11,8 @@ class Bullet;
 class PlayScene;
 class Turret;
 
+
+
 class Enemy : public Engine::Sprite {
 protected:
  	std::vector<Engine::Point> path;
@@ -19,6 +21,7 @@ protected:
 	float hp;
 	float slowRemainTime;
 	int money;
+	int change;
 	PlayScene* getPlayScene();
 	virtual void OnExplode();
 public:

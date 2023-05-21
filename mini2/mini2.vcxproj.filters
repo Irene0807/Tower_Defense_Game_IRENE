@@ -27,7 +27,7 @@
     <ClCompile Include="Point.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="RedNormalEnemy.cpp">
+    <ClCompile Include="AllEnemy.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="Resources.cpp">
@@ -123,7 +123,7 @@
     <ClCompile Include="ShootingEffect.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="DiceEnemy.cpp">
+    <ClCompile Include="Dice2Enemy.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
@@ -140,7 +140,7 @@
     <ClInclude Include="Point.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="RedNormalEnemy.hpp">
+    <ClInclude Include="AllEnemy.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Resources.hpp">
@@ -236,7 +236,7 @@
     <ClInclude Include="ShootingEffect.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="DiceEnemy.hpp">
+    <ClInclude Include="Dice2Enemy.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

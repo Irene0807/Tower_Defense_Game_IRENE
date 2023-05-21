@@ -11,6 +11,7 @@
 #include "AudioHelper.hpp"
 #include "DirtyEffect.hpp"
 #include "Enemy.hpp"
+
 #include "GameEngine.hpp"
 #include "Group.hpp"
 #include "IObject.hpp"
@@ -21,14 +22,15 @@
 #include "MachineGunTurret.hpp"
 #include "Plane.hpp"
 // Enemy
-#include "RedNormalEnemy.hpp"
-#include "DiceEnemy.hpp"
+#include "AllEnemy.hpp"
+#include "Dice2Enemy.hpp"
 #include "PlayScene.hpp"
 #include "Resources.hpp"
 #include "Sprite.hpp"
 #include "Turret.hpp"
 #include "TurretButton.hpp"
 #include "LOG.hpp"
+
 
 bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
@@ -164,6 +166,9 @@ void PlayScene::Update(float deltaTime) {
 			break;
 		case 2:
 			EnemyGroup->AddNewObject(enemy = new DiceEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
+			break;
+		case 3:
+			EnemyGroup->AddNewObject(enemy = new Dice2Enemy(SpawnCoordinate.x, SpawnCoordinate.y));
 			break;
 		// TODO 2 (2/3): You need to modify 'resources/enemy1.txt', or 'resources/enemy2.txt' to spawn the new enemy.
 		// The format is "[EnemyId] [TimeDelay] [Repeat]".
