@@ -29,5 +29,6 @@ public:
     void Update(float deltaTime) override;
     void Draw() const override;
 	int GetPrice() const;
+    bool machine = 0;
 };
 #endif // TURRET_HPP

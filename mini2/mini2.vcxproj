@@ -169,6 +169,7 @@
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="LOG.cpp" />
     <ClCompile Include="LoseScene.cpp" />
+    <ClCompile Include="MachineGun2Turret.cpp" />
     <ClCompile Include="MachineGunTurret.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Plane.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="LOG.hpp" />
     <ClInclude Include="LoseScene.hpp" />
+    <ClInclude Include="MachineGun2Turret.hpp" />
     <ClInclude Include="MachineGunTurret.hpp" />
     <ClInclude Include="Plane.hpp" />
     <ClInclude Include="PlayScene.hpp" />

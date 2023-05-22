@@ -126,6 +126,9 @@
     <ClCompile Include="Dice2Enemy.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="MachineGun2Turret.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Plane.hpp">
@@ -237,6 +240,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Dice2Enemy.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MachineGun2Turret.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

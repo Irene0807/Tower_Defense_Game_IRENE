@@ -24,6 +24,7 @@ private:
 		TILE_DIRT,
 		TILE_FLOOR,
 		TILE_OCCUPIED,
+		MACHINE_GUN_OCCUPIED,
 	};
 	ALLEGRO_SAMPLE_ID bgmId;
 	std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> deathBGMInstance;

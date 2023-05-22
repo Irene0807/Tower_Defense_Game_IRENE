@@ -20,6 +20,7 @@
 // Turret
 #include "PlugGunTurret.hpp"
 #include "MachineGunTurret.hpp"
+#include "MachineGun2Turret.hpp"
 #include "Plane.hpp"
 // Enemy
 #include "AllEnemy.hpp"
@@ -232,6 +233,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 		if (mapState[y][x] != TILE_OCCUPIED) {
 			if (!preview)
 				return;
+
+			if (!preview->machine && mapState[y][x] == MACHINE_GUN_OCCUPIED) return;
+
 			// Check if valid.
 			if (!CheckSpaceValid(x, y)) {
 				Engine::Sprite* sprite;
@@ -239,11 +243,27 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				sprite->Rotation = 0;
 				return;
 			}
+
+			
+
 			// Purchase.
 			EarnMoney(-preview->GetPrice());
+
 			// Remove Preview.
 			preview->GetObjectIterator()->first = false;
 			UIGroup->RemoveObject(preview->GetObjectIterator());
+
+			for (auto& it : TowerGroup->GetObjects()) {
+				int position_x = it->Position.x / BlockSize;
+				int position_y = it->Position.y / BlockSize;
+				if (preview->machine && position_x == x && position_y == y) {
+					TowerGroup->RemoveObject(it->GetObjectIterator());
+					preview = new MachineGun2Turret(0,0);
+					preview->machine = 0;
+				}
+
+			}
+
 			// Construct real turret.
 			preview->Position.x = x * BlockSize + BlockSize / 2;
 			preview->Position.y = y * BlockSize + BlockSize / 2;
@@ -251,14 +271,19 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview->Preview = false;
 			preview->Tint = al_map_rgba(255, 255, 255, 255);
 			TowerGroup->AddNewObject(preview);
+
+
+			if (preview->machine) mapState[y][x] = MACHINE_GUN_OCCUPIED;
+			else mapState[y][x] = TILE_OCCUPIED;
+			
 			// To keep responding when paused.
 			preview->Update(0);
 			// Remove Preview.
 			preview = nullptr;
 
-			mapState[y][x] = TILE_OCCUPIED;
 			OnMouseMove(mx, my);
 		}
+		
 	}
 }
 void PlayScene::OnKeyDown(int keyCode) {
@@ -407,8 +432,10 @@ void PlayScene::UIBtnClicked(int id) {
     }
 	if (id == 0 && money >= PlugGunTurret::Price) 
 		preview = new PlugGunTurret(0, 0);
-	if (id == 1 && money >= MachineGunTurret::Price)
+	if (id == 1 && money >= MachineGunTurret::Price) {
 		preview = new MachineGunTurret(0, 0);
+		preview->machine = 1;
+	}
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)
 		return;
