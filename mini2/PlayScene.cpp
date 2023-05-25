@@ -21,6 +21,9 @@
 #include "PlugGunTurret.hpp"
 #include "MachineGunTurret.hpp"
 #include "MachineGun2Turret.hpp"
+#include "FourTurret.hpp"
+#include "Shifter.hpp"
+#include "Shovel.hpp"
 #include "Plane.hpp"
 // Enemy
 #include "AllEnemy.hpp"
@@ -230,11 +233,10 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	const int x = mx / BlockSize;
 	const int y = my / BlockSize;
 	if (button & 1) {
-		if (mapState[y][x] != TILE_OCCUPIED) {
-			if (!preview)
-				return;
+		if (mapState[y][x] != TILE_OCCUPIED ||( mapState[y][x] == TILE_OCCUPIED && preview->shovel)) {
+			if (!preview) return;
 
-			if (!preview->machine && mapState[y][x] == MACHINE_GUN_OCCUPIED) return;
+			if ((!preview->machine && !preview->shovel) && mapState[y][x] == MACHINE_GUN_OCCUPIED) return;
 
 			// Check if valid.
 			if (!CheckSpaceValid(x, y)) {
@@ -248,12 +250,14 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 
 			// Purchase.
 			EarnMoney(-preview->GetPrice());
+			
 
 			// Remove Preview.
 			preview->GetObjectIterator()->first = false;
 			UIGroup->RemoveObject(preview->GetObjectIterator());
 
 			for (auto& it : TowerGroup->GetObjects()) {
+				Turret* turret = dynamic_cast<Turret*>(it);
 				int position_x = it->Position.x / BlockSize;
 				int position_y = it->Position.y / BlockSize;
 				if (preview->machine && position_x == x && position_y == y) {
@@ -261,20 +265,29 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 					preview = new MachineGun2Turret(0,0);
 					preview->machine = 0;
 				}
+				else if (preview->shovel && position_x == x && position_y == y) {
+					EarnMoney(turret->GetPrice() / 2);
+					TowerGroup->RemoveObject(it->GetObjectIterator());					
+				}
 
 			}
 
-			// Construct real turret.
-			preview->Position.x = x * BlockSize + BlockSize / 2;
-			preview->Position.y = y * BlockSize + BlockSize / 2;
-			preview->Enabled = true;
-			preview->Preview = false;
-			preview->Tint = al_map_rgba(255, 255, 255, 255);
-			TowerGroup->AddNewObject(preview);
-
+			if (preview->shovel != 1) {
+				// Construct real turret.
+				preview->Position.x = x * BlockSize + BlockSize / 2;
+				preview->Position.y = y * BlockSize + BlockSize / 2;
+				preview->Enabled = true;
+				preview->Preview = false;
+				preview->Tint = al_map_rgba(255, 255, 255, 255);
+				TowerGroup->AddNewObject(preview);
+			}
+	
 
 			if (preview->machine) mapState[y][x] = MACHINE_GUN_OCCUPIED;
+			else if(preview->shovel) mapState[y][x] = TILE_FLOOR;
 			else mapState[y][x] = TILE_OCCUPIED;
+
+			preview->shovel = 0;
 			
 			// To keep responding when paused.
 			preview->Update(0);
@@ -404,6 +417,9 @@ void PlayScene::ConstructUI() {
 	// Buttons
 	ConstructButton(0, "play/turret-6.png", PlugGunTurret::Price);
 	ConstructButton(1, "play/turret-1.png", MachineGunTurret::Price);
+	ConstructButton(2, "play/ufo.png", FourTurret::Price);
+	ConstructButton(3, "play/shovel.png", Shifter::Price);
+	ConstructButton(4, "play/shifter.png", Shovel::Price);
 	// TODO 3 (3/5): Create a button to support constructing the new turret.
     
 	int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -416,10 +432,21 @@ void PlayScene::ConstructUI() {
 
 void PlayScene::ConstructButton(int id, std::string sprite, int price) {
 	TurretButton* btn;
-	btn = new TurretButton("play/floor.png", "play/dirt.png",
-		Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
-		Engine::Sprite(sprite, 1294 + id * 76, 136 - 8, 0, 0, 0, 0)
-		, 1294 + id * 76, 136, price);
+	if (id < 2)
+		btn = new TurretButton("play/floor.png", "play/dirt.png",
+			Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + id * 76, 136 - 8, 0, 0, 0, 0)
+			, 1294 + id * 76, 136, price);
+	else if (id == 2)
+		btn = new TurretButton("play/floor.png", "play/dirt.png",
+			Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + id * 76, 136, 0, 0, 0, 0)
+			, 1294 + id * 76, 136, price);
+	else
+		btn = new TurretButton("play/floor.png", "play/dirt.png",
+			Engine::Sprite("play/tower-base.png", -100, -100, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + (id-3) * 76, 136 + 76, 0, 0, 0, 0)
+			, 1294 + (id-3) * 76, 136 + 76, price);
 	// Reference: Class Member Function Pointer and std::bind.
 	btn->SetOnClickCallback(std::bind(&PlayScene::UIBtnClicked, this, id));
 	UIGroup->AddNewControlObject(btn);
@@ -436,6 +463,15 @@ void PlayScene::UIBtnClicked(int id) {
 		preview = new MachineGunTurret(0, 0);
 		preview->machine = 1;
 	}
+	if (id == 2 && money >= FourTurret::Price)
+		preview = new FourTurret(0, 0);
+	if (id == 3 && money >= Shovel::Price) {
+		preview = new Shovel(0, 0);
+		preview->shovel = 1;
+	}
+	if (id == 4 && money >= Shifter::Price)
+		preview = new Shifter(0, 0);
+
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.
 	if (!preview)
 		return;

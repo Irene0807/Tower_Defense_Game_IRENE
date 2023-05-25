@@ -159,6 +159,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExplosionEffect.cpp" />
     <ClCompile Include="FireBullet.cpp" />
+    <ClCompile Include="FourTurret.cpp" />
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="IControl.cpp" />
@@ -179,7 +180,9 @@
     <ClCompile Include="AllEnemy.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="SettingScene.cpp" />
+    <ClCompile Include="Shifter.cpp" />
     <ClCompile Include="ShootingEffect.cpp" />
+    <ClCompile Include="Shovel.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StageSelectScene.cpp" />
@@ -199,6 +202,7 @@
     <ClInclude Include="Enemy.hpp" />
     <ClInclude Include="ExplosionEffect.hpp" />
     <ClInclude Include="FireBullet.hpp" />
+    <ClInclude Include="FourTurret.hpp" />
     <ClInclude Include="GameEngine.hpp" />
     <ClInclude Include="Group.hpp" />
     <ClInclude Include="IControl.hpp" />
@@ -218,7 +222,9 @@
     <ClInclude Include="AllEnemy.hpp" />
     <ClInclude Include="Resources.hpp" />
     <ClInclude Include="SettingScene.hpp" />
+    <ClInclude Include="Shifter.hpp" />
     <ClInclude Include="ShootingEffect.hpp" />
+    <ClInclude Include="Shovel.hpp" />
     <ClInclude Include="Slider.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="StageSelectScene.hpp" />

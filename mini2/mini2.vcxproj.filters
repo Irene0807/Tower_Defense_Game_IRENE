@@ -129,6 +129,15 @@
     <ClCompile Include="MachineGun2Turret.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="FourTurret.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Shifter.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Shovel.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Plane.hpp">
@@ -243,6 +252,15 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="MachineGun2Turret.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="FourTurret.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Shifter.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Shovel.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

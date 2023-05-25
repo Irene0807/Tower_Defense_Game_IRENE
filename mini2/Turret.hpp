@@ -30,5 +30,6 @@ public:
     void Draw() const override;
 	int GetPrice() const;
     bool machine = 0;
+    bool shovel = 0;
 };
 #endif // TURRET_HPP
