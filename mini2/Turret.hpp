@@ -31,6 +31,7 @@ public:
 	int GetPrice() const;
     bool machine = 0;
     bool machine2 = 0;
+    bool four = 0;
     bool shovel = 0;
     bool shifter = 0;
     

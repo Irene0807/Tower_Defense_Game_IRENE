@@ -271,16 +271,22 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 				else if (preview->shifter && position_x == x && position_y == y) {
 					is_shift = 1;
 					if (preview->shovel || preview->shifter) mapState[y][x] = TILE_FLOOR;
-					if (!turret->machine && !turret->machine2) {
+					if (!turret->machine && !turret->machine2 && !turret->four) {
 						TowerGroup->RemoveObject(it->GetObjectIterator());
 						preview = nullptr;
 						UIBtnClicked(0);
 						return;
 					}
-					else if(turret->machine) {
+					else if (turret->machine) {
 						TowerGroup->RemoveObject(it->GetObjectIterator());
 						preview = nullptr;
 						UIBtnClicked(1);
+						return;
+					}
+					else if(turret->four) {
+						TowerGroup->RemoveObject(it->GetObjectIterator());
+						preview = nullptr;
+						UIBtnClicked(2);
 						return;
 					}
 					else if (turret->machine2) {
@@ -311,6 +317,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 			preview->shovel = 0;
 			preview->shifter = 0;
 			preview->machine2 = 0;
+			is_shift = 0;
 			
 			// To keep responding when paused.
 			preview->Update(0);
@@ -489,8 +496,10 @@ void PlayScene::UIBtnClicked(int id) {
 		preview = new MachineGunTurret(0, 0);
 		preview->machine = 1;
 	}
-	if (id == 2 && (is_shift || money >= FourTurret::Price))
+	if (id == 2 && (is_shift || money >= FourTurret::Price)) {
 		preview = new FourTurret(0, 0);
+		preview->four = 1;
+	}
 	if (id == 3 && (is_shift || money >= Shovel::Price)) {
 		preview = new Shovel(0, 0);
 		preview->shovel = 1;
