@@ -44,6 +44,7 @@ public:
 	static const Engine::Point EndGridPoint;
 	static const std::vector<int> code;
 	bool mute;
+	bool is_shift = 0;
 	int MapId;
 	float ticks;
 	float deathCountDown;

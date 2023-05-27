@@ -30,6 +30,9 @@ public:
     void Draw() const override;
 	int GetPrice() const;
     bool machine = 0;
+    bool machine2 = 0;
     bool shovel = 0;
+    bool shifter = 0;
+    
 };
 #endif // TURRET_HPP

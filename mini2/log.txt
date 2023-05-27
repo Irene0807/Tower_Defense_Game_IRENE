@@ -44,48 +44,14 @@
 [INFO] Loaded Resource<image>: resources/images/play/shoot-3.png
 [INFO] Loaded Resource<image>: resources/images/play/shoot-4.png
 [INFO] Loaded Resource<audio>: resources/audios/gun.wav
-[INFO] Loaded Resource<image>: resources/images/play/dirty-1.png
-[INFO] Loaded Resource<image>: resources/images/play/explosion-1.png
-[INFO] Loaded Resource<image>: resources/images/play/explosion-2.png
-[INFO] Loaded Resource<image>: resources/images/play/explosion-3.png
-[INFO] Loaded Resource<image>: resources/images/play/explosion-4.png
-[INFO] Loaded Resource<image>: resources/images/play/explosion-5.png
-[INFO] Loaded Resource<image>: resources/images/play/dirty-3.png
-[INFO] Loaded Resource<image>: resources/images/play/dirty-2.png
-[INFO] Loaded Resource<audio>: resources/audios/explosion.wav
 [INFO] Loaded Resource<image>: resources/images/play/bullet-5.png
-[INFO] Loaded Resource<image>: resources/images/play/dice-2.png
-[INFO] Created<sample_instance>: resources/audios/astronomia.ogg
-[INFO] stopped audio (sample)
-[INFO] Created<sample_instance>: resources/audios/astronomia.ogg
-[INFO] stopped audio (sample)
-[INFO] Created<sample_instance>: resources/audios/astronomia.ogg
-[INFO] stopped audio (bgm)
-[INFO] stopped audio (sample)
-[INFO] Loaded Resource<image>: resources/images/win/dirt.png scaled to 400x100
-[INFO] Loaded Resource<image>: resources/images/win/dirt.png
-[INFO] Loaded Resource<image>: resources/images/win/floor.png
-[INFO] Created<sample_instance>: resources/audios/astronomia.ogg
-[INFO] Changed to lose scene
-[INFO] Changed to stage-select scene
-[INFO] Created<sample_instance>: resources/audios/astronomia.ogg
-[INFO] Created<sample_instance>: resources/audios/play.ogg
-[INFO] Changed to play scene
-[INFO] stopped audio (bgm)
-[INFO] Loaded Resource<image>: resources/images/win/benjamin-sad.png
-[INFO] Loaded Resource<audio>: resources/audios/win.wav
-[INFO] Changed to win scene
 [INFO] Game Terminating...
 [INFO] stopped audio (bgm)
 [INFO] Game terminated
 [INFO] Game end
-[INFO] Destroyed Resource<image>: play/dirty-3.png
-[INFO] Destroyed Resource<image>: play/explosion-2.png
 [INFO] Destroyed Resource<image>: stage-select/dirt.png
 [INFO] Destroyed Resource<image>: play/ufo.png
 [INFO] Destroyed Resource<image>: icon.png
-[INFO] Destroyed Resource<image>: play/dirty-2.png
-[INFO] Destroyed Resource<image>: play/explosion-3.png
 [INFO] Destroyed Resource<image>: start_scene/out.png?400x100
 [INFO] Destroyed Resource<image>: start_scene/out.png
 [INFO] Destroyed Resource<image>: play/dirt.png?64x64
@@ -96,14 +62,11 @@
 [INFO] Destroyed Resource<image>: play/turret-6.png
 [INFO] Destroyed Resource<image>: stage-select/floor.png
 [INFO] Destroyed Resource<image>: play/floor.png?64x64
-[INFO] Destroyed Resource<image>: win/benjamin-sad.png
 [INFO] Destroyed Resource<image>: play/sand.png?320x832
 [INFO] Destroyed Resource<image>: play/floor.png
 [INFO] Destroyed Resource<image>: play/shoot-2.png
 [INFO] Destroyed Resource<image>: play/turret-1.png
-[INFO] Destroyed Resource<image>: win/dirt.png
-[INFO] Destroyed Resource<image>: play/shifter.png
-[INFO] Destroyed Resource<image>: win/floor.png
+[INFO] Destroyed Resource<image>: play/shovel.png
 [INFO] Destroyed Resource<image>: play/benjamin.png
 [INFO] Destroyed Resource<image>: play/target.png
 [INFO] Destroyed Resource<image>: lose/benjamin-happy.png
@@ -112,13 +75,7 @@
 [INFO] Destroyed Resource<image>: play/shoot-1.png
 [INFO] Destroyed Resource<image>: play/shoot-3.png
 [INFO] Destroyed Resource<image>: play/shoot-4.png
-[INFO] Destroyed Resource<image>: play/dirty-1.png
-[INFO] Destroyed Resource<image>: play/explosion-1.png
-[INFO] Destroyed Resource<image>: play/explosion-4.png
-[INFO] Destroyed Resource<image>: play/explosion-5.png
 [INFO] Destroyed Resource<image>: play/bullet-5.png
-[INFO] Destroyed Resource<image>: play/dice-2.png
-[INFO] Destroyed Resource<image>: win/dirt.png?400x100
 [INFO] Destroyed Resource<font>: pirulen.ttf?48
 [INFO] Destroyed Resource<font>: pirulen.ttf?32
 [INFO] Destroyed Resource<font>: pirulen.ttf?108
@@ -128,5 +85,3 @@
 [INFO] Destroyed Resource<audio>: gun.wav
 [INFO] Destroyed Resource<audio>: astronomia.ogg
 [INFO] Destroyed Resource<audio>: play.ogg
-[INFO] Destroyed Resource<audio>: explosion.wav
-[INFO] Destroyed Resource<audio>: win.wav
