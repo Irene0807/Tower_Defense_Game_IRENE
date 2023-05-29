@@ -46,14 +46,14 @@ void ArrowBullet::Update(float deltaTime) {
 			OnExplode(enemy);
 			enemy->Hit(damage);
 			parent->bullet_num--;
-			getPlayScene()->BulletGroup->RemoveObject(objectIterator);
+			if(parent->four) getPlayScene()->BulletGroup->RemoveObject(objectIterator);
 			return;
 		}
 	}
 	// Check if out of boundary.
 	if (!Engine::Collider::IsRectOverlap(Position - Size / 2, Position + Size / 2, Engine::Point(0, 0), PlayScene::GetClientSize())) {
 		parent->bullet_num--;
-		getPlayScene()->BulletGroup->RemoveObject(objectIterator);
+		if (parent->four) getPlayScene()->BulletGroup->RemoveObject(objectIterator);
 	}
 }
 

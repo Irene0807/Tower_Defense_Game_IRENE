@@ -268,7 +268,7 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 					preview->machine2 = 1;
 					preview->machine = 0;
 				}
-				else if (preview->special && position_x - x < 5 && position_y - y < 5 && position_x - x > -5 && position_y - y >-5) {
+				else if (preview->special && position_x - x < 2 && position_y - y < 2 && position_x - x > -2 && position_y - y >-2) {
 					TowerGroup->RemoveObject(it->GetObjectIterator());
 					preview = new SpecialTurret(0, 0);
 					preview->special = 1;

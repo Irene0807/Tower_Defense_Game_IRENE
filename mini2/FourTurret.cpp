@@ -41,7 +41,7 @@ void FourTurret::Update(float deltaTime) {
 		return;
 
     while (!bullet_num) {
-
+        if(four)
         CreateBullet();
     }
 }
