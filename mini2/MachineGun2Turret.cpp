@@ -24,7 +24,7 @@ void MachineGun2Turret::CreateBullet() {
     // Change bullet position to the front of the gun barrel.
     getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + normalized * 36, diff, rotation, this));
 
-    Engine::Point diff2 = Engine::Point(cos(Rotation - ALLEGRO_PI / 2), sin(Rotation - ALLEGRO_PI / 2));
+    Engine::Point diff2 = Engine::Point(cos(Rotation - ALLEGRO_PI / 2 +0.15), sin(Rotation - ALLEGRO_PI / 2 + 0.15));
     float rotation2 = atan2(diff2.y, diff2.x);
     Engine::Point normalized2 = diff2.Normalize();
     // Change bullet position to the front of the gun barrel.
