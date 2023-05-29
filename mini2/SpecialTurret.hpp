@@ -1,11 +1,11 @@
-#ifndef FOURTURRET_HPP
-#define FOURTURRET_HPP
+#ifndef SPECIALTURRET_HPP
+#define SPECIALTURRET_HPP
 #include "Turret.hpp"
 
-class FourTurret : public Turret {
+class SpecialTurret : public Turret {
 public:
     static const int Price;
-    FourTurret(float x, float y);
+    SpecialTurret(float x, float y);
     void CreateBullet() override;
     void Update(float deltaTime) override;
 };

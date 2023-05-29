@@ -3,12 +3,13 @@
 #include <string>
 
 #include "AudioHelper.hpp"
-#include "WoodBullet.hpp"
+#include "ArrowBullet.hpp"
 #include "Group.hpp"
 #include "FourTurret.hpp"
 #include "PlayScene.hpp"
 #include "Point.hpp"
 #include "ShootingEffect.hpp"
+#include "Enemy.hpp"
 
 const int FourTurret::Price = 40;
 FourTurret::FourTurret(float x, float y) :
@@ -18,12 +19,29 @@ FourTurret::FourTurret(float x, float y) :
     Anchor.y += 8.0f / GetBitmapHeight();
 }
 void FourTurret::CreateBullet() {
+    bullet_num = 4;
     Engine::Point diff = Engine::Point(cos(Rotation - ALLEGRO_PI / 2), sin(Rotation - ALLEGRO_PI / 2));
     float rotation = atan2(diff.y, diff.x);
     Engine::Point normalized = diff.Normalize();
     // Change bullet position to the front of the gun barrel.
-    getPlayScene()->BulletGroup->AddNewObject(new WoodBullet(Position + normalized * 36, diff, rotation, this));
-    getPlayScene()->EffectGroup->AddNewObject(new ShootingEffect(Position.x + diff.x * 36, Position.y + diff.y * 36));
-    // TODO 4 (2/2): Add a ShootEffect here. Remember you need to include the class.
+
+    getPlayScene()->BulletGroup->AddNewObject(new ArrowBullet(Position + Engine::Point(100, 0), diff, rotation, this));
+    getPlayScene()->BulletGroup->AddNewObject(new ArrowBullet(Position + Engine::Point(-100, 0), diff, rotation, this));
+    getPlayScene()->BulletGroup->AddNewObject(new ArrowBullet(Position + Engine::Point(0, 100), diff, rotation, this));
+    getPlayScene()->BulletGroup->AddNewObject(new ArrowBullet(Position + Engine::Point(0, -100), diff, rotation, this));
     AudioHelper::PlayAudio("gun.wav");
+}
+
+void FourTurret::Update(float deltaTime) {
+	Sprite::Update(deltaTime);
+	PlayScene* scene = getPlayScene();
+	imgBase.Position = Position;
+	imgBase.Tint = Tint;
+	if (!Enabled)
+		return;
+
+    while (!bullet_num) {
+
+        CreateBullet();
+    }
 }

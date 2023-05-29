@@ -17,11 +17,13 @@
 #include "IObject.hpp"
 #include "Image.hpp"
 #include "Label.hpp"
+#include "Bullet.hpp"
 // Turret
 #include "PlugGunTurret.hpp"
 #include "MachineGunTurret.hpp"
 #include "MachineGun2Turret.hpp"
 #include "FourTurret.hpp"
+#include "SpecialTurret.hpp"
 #include "Shifter.hpp"
 #include "Shovel.hpp"
 #include "Plane.hpp"
@@ -189,6 +191,7 @@ void PlayScene::Update(float deltaTime) {
 		// To keep responding when paused.
 		preview->Update(deltaTime);
 	}
+	
 }
 void PlayScene::Draw() const {
 	IScene::Draw();
@@ -233,10 +236,12 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 	const int x = mx / BlockSize;
 	const int y = my / BlockSize;
 	if (button & 1) {
-		if (mapState[y][x] != TILE_OCCUPIED ||( mapState[y][x] == TILE_OCCUPIED && preview->shovel) || (mapState[y][x] == TILE_OCCUPIED && preview->shifter)) {
+		if ((mapState[y][x] != TILE_OCCUPIED && preview->special == 0)|| (mapState[y][x] == TILE_OCCUPIED && (preview->shovel || preview->shifter)) ||
+			 ((mapState[y][x] == TILE_OCCUPIED || mapState[y][x] == MACHINE_GUN_OCCUPIED) && preview->special)) {
+
 			if (!preview) return;
 
-			if ((!preview->machine && !preview->shovel && !preview->shifter) && mapState[y][x] == MACHINE_GUN_OCCUPIED) return;
+			if ((!preview->machine && !preview->shovel && !preview->special && !preview->shifter) && mapState[y][x] == MACHINE_GUN_OCCUPIED) return;
 
 			// Check if valid.
 			if (!CheckSpaceValid(x, y)) {
@@ -248,7 +253,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 
 			// Purchase.
 			if(!is_shift) EarnMoney(-preview->GetPrice());
-			
 
 			// Remove Preview.
 			preview->GetObjectIterator()->first = false;
@@ -264,14 +268,23 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 					preview->machine2 = 1;
 					preview->machine = 0;
 				}
+				else if (preview->special && position_x - x < 5 && position_y - y < 5 && position_x - x > -5 && position_y - y >-5) {
+					TowerGroup->RemoveObject(it->GetObjectIterator());
+					preview = new SpecialTurret(0, 0);
+					preview->special = 1;
+					if(turret->machine) turret->machine = 0;
+					else if (turret->machine2) turret->machine2 = 0;
+					else if (turret->four) turret->four = 0;
+				}
 				else if (preview->shovel && position_x == x && position_y == y) {
 					EarnMoney(turret->GetPrice() / 2);
 					TowerGroup->RemoveObject(it->GetObjectIterator());					
 				}
 				else if (preview->shifter && position_x == x && position_y == y) {
+					std::cout << turret->machine2;
 					is_shift = 1;
 					if (preview->shovel || preview->shifter) mapState[y][x] = TILE_FLOOR;
-					if (!turret->machine && !turret->machine2 && !turret->four) {
+					if (!turret->machine && !turret->machine2 && !turret->four && !turret->special) {
 						TowerGroup->RemoveObject(it->GetObjectIterator());
 						preview = nullptr;
 						UIBtnClicked(0);
@@ -284,7 +297,9 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 						return;
 					}
 					else if(turret->four) {
+						preview->bullet_num = 0;
 						TowerGroup->RemoveObject(it->GetObjectIterator());
+						//BulletGroup->RemoveObject(objectIterator);
 						preview = nullptr;
 						UIBtnClicked(2);
 						return;
@@ -295,6 +310,17 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 						UIBtnClicked(5);
 						return;
 					}
+					else if (turret->special && preview->stop==0) {
+						preview->special_bullet_num = 0;
+						TowerGroup->RemoveObject(it->GetObjectIterator());
+						preview = nullptr;
+						UIBtnClicked(6);
+						return;
+					}
+					/*else if (preview->special_bullet_num = 0) {
+						EarnMoney(turret->GetPrice() / 2);
+						TowerGroup->RemoveObject(it->GetObjectIterator());
+					}*/
 				}
 
 			}
@@ -316,7 +342,6 @@ void PlayScene::OnMouseUp(int button, int mx, int my) {
 
 			preview->shovel = 0;
 			preview->shifter = 0;
-			preview->machine2 = 0;
 			is_shift = 0;
 			
 			// To keep responding when paused.
@@ -450,6 +475,7 @@ void PlayScene::ConstructUI() {
 	ConstructButton(2, "play/ufo.png", FourTurret::Price);
 	ConstructButton(3, "play/shovel.png", Shovel::Price);
 	ConstructButton(4, "play/shifter.png", Shifter::Price);
+	ConstructButton(6, "play/magic.png", SpecialTurret::Price);
 	// TODO 3 (3/5): Create a button to support constructing the new turret.
     
 	int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
@@ -472,6 +498,11 @@ void PlayScene::ConstructButton(int id, std::string sprite, int price) {
 			Engine::Sprite("play/tower-base.png", 1294 + id * 76, 136, 0, 0, 0, 0),
 			Engine::Sprite(sprite, 1294 + id * 76, 136, 0, 0, 0, 0)
 			, 1294 + id * 76, 136, price);
+	else if (id == 6)
+		btn = new TurretButton("play/floor.png", "play/dirt.png",
+			Engine::Sprite("play/tower-base.png", -100, -100, 0, 0, 0, 0),
+			Engine::Sprite(sprite, 1294 + (id-4) * 76, 136 + 76, 0, 0, 0, 0)
+			, 1294 + (id-4) * 76, 136 + 76, price);
 	else
 		btn = new TurretButton("play/floor.png", "play/dirt.png",
 			Engine::Sprite("play/tower-base.png", -100, -100, 0, 0, 0, 0),
@@ -483,6 +514,7 @@ void PlayScene::ConstructButton(int id, std::string sprite, int price) {
 }
 
 void PlayScene::UIBtnClicked(int id) {
+	std::cout <<"jk" << id;
 	if (preview) {
 		UIGroup->RemoveObject(preview->GetObjectIterator());
         preview = nullptr;
@@ -511,6 +543,10 @@ void PlayScene::UIBtnClicked(int id) {
 	if (id == 5 && (is_shift || money >= MachineGun2Turret::Price)) {
 		preview = new MachineGun2Turret(0, 0);
 		preview->machine2 = 1;
+	}
+	if (id == 6 && (is_shift || money >= MachineGun2Turret::Price)) {
+		preview = new SpecialTurret(0, 0);
+		preview->special = 1;
 	}
 
 	// TODO 3 (4/5): On the new turret button callback, create the new turret.

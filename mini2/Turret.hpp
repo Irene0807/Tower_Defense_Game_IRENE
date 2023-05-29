@@ -32,8 +32,13 @@ public:
     bool machine = 0;
     bool machine2 = 0;
     bool four = 0;
+    bool special = 0;
     bool shovel = 0;
     bool shifter = 0;
+
+    int bullet_num;
+    int special_bullet_num;
+    int stop = 0;
     
 };
 #endif // TURRET_HPP

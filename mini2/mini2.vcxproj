@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Allegro5Exception.cpp" />
+    <ClCompile Include="ArrowBullet.cpp" />
     <ClCompile Include="AudioHelper.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -184,6 +185,9 @@
     <ClCompile Include="ShootingEffect.cpp" />
     <ClCompile Include="Shovel.cpp" />
     <ClCompile Include="Slider.cpp" />
+    <ClCompile Include="SpecialBullet.cpp" />
+    <ClCompile Include="SpecialShootingEffect.cpp" />
+    <ClCompile Include="SpecialTurret.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StageSelectScene.cpp" />
     <ClCompile Include="StartScene.cpp" />
@@ -194,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Allegro5Exception.hpp" />
+    <ClInclude Include="ArrowBullet.hpp" />
     <ClInclude Include="AudioHelper.hpp" />
     <ClInclude Include="Bullet.hpp" />
     <ClInclude Include="Collider.hpp" />
@@ -226,6 +231,9 @@
     <ClInclude Include="ShootingEffect.hpp" />
     <ClInclude Include="Shovel.hpp" />
     <ClInclude Include="Slider.hpp" />
+    <ClInclude Include="SpecialBullet.hpp" />
+    <ClInclude Include="SpecialShootingEffect.hpp" />
+    <ClInclude Include="SpecialTurret.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="StageSelectScene.hpp" />
     <ClInclude Include="StartScene.hpp" />

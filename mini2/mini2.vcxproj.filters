@@ -138,6 +138,18 @@
     <ClCompile Include="Shovel.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="ArrowBullet.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialBullet.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialTurret.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialShootingEffect.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Plane.hpp">
@@ -261,6 +273,18 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Shovel.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowBullet.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialBullet.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialTurret.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialShootingEffect.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
