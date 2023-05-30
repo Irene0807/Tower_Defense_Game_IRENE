@@ -20,15 +20,12 @@ MachineGun2Turret::MachineGun2Turret(float x, float y) :
 void MachineGun2Turret::CreateBullet() {
     Engine::Point diff = Engine::Point(cos(Rotation - ALLEGRO_PI / 2), sin(Rotation - ALLEGRO_PI / 2));
     float rotation = atan2(diff.y, diff.x);
+    Engine::Point right = Engine::Point(cos(Rotation - ALLEGRO_PI), sin(Rotation - ALLEGRO_PI));
     Engine::Point normalized = diff.Normalize();
-    // Change bullet position to the front of the gun barrel.
-    getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + normalized * 36, diff, rotation, this));
+    getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + right.Normalize() *6 + normalized * 36, diff, rotation, this));
 
-    Engine::Point diff2 = Engine::Point(cos(Rotation - ALLEGRO_PI / 2 +0.15), sin(Rotation - ALLEGRO_PI / 2 + 0.15));
-    float rotation2 = atan2(diff2.y, diff2.x);
-    Engine::Point normalized2 = diff2.Normalize();
-    // Change bullet position to the front of the gun barrel.
-    getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + normalized2 * 36, diff2, rotation, this));
+    Engine::Point left = Engine::Point(cos(Rotation), sin(Rotation));
+    getPlayScene()->BulletGroup->AddNewObject(new FireBullet(Position + left.Normalize() *6 + normalized * 36, diff, rotation, this));
     
     // TODO 4 (2/2): Add a ShootEffect here. Remember you need to include the class.
     AudioHelper::PlayAudio("gun.wav");
